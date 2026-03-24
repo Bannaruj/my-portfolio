@@ -27,6 +27,7 @@ import SkillBadge3 from './assets/images/skillbadge3.png';
 import CoffeeAppImage from './assets/images/coffee-app.png';
 import MoneyTrackingAppImage from './assets/images/money-tracking-app.png';
 import BMRAppImage from './assets/images/bmr-cal-app.png';
+import ProfileImage from './assets/images/me.jpg';
 
 export default function PortfolioPage() {
   const skillCategories = [
@@ -126,6 +127,22 @@ export default function PortfolioPage() {
             </span>
             <span>Available for new opportunities</span>
           </div>
+          
+          <div className="relative mb-12 mt-6 group flex items-center justify-center">
+            {/* Ambient glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500 hover:from-indigo-600 to-emerald-400 hover:to-emerald-500 rounded-[2rem] rounded-tl-[4rem] rounded-br-[4rem] blur-xl opacity-40 group-hover:opacity-70 transition duration-700"></div>
+            
+            {/* Profile Image container with asymmetric rounded corners */}
+            <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 overflow-hidden border-4 border-white shadow-2xl bg-white rounded-[2rem] rounded-tl-[4rem] rounded-br-[4rem] transform transition duration-500 group-hover:scale-[1.03]">
+              <Image src={ProfileImage} alt="Bannaruj Limsomwong" className="w-full h-full object-cover object-center" />
+            </div>
+            
+            {/* Interactive floating emoji badge */}
+            <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-white p-3 md:p-4 rounded-2xl md:rounded-3xl shadow-xl flex items-center justify-center border border-zinc-100 transform transition-transform duration-500 group-hover:-translate-y-2 hover:rotate-12 cursor-default">
+              <span className="text-3xl md:text-4xl">👋</span>
+            </div>
+          </div>
+
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-900 mb-6 drop-shadow-sm">
             Bannaruj Limsomwong
           </h1>
