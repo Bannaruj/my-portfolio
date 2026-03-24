@@ -24,6 +24,9 @@ import MOSImage from './assets/images/MOS.png';
 import SkillBadge1 from './assets/images/skillbadge1.png';
 import SkillBadge2 from './assets/images/skillbadge2.png';
 import SkillBadge3 from './assets/images/skillbadge3.png';
+import CoffeeAppImage from './assets/images/coffee-app.png';
+import MoneyTrackingAppImage from './assets/images/money-tracking-app.png';
+import BMRAppImage from './assets/images/bmr-cal-app.png';
 
 export default function PortfolioPage() {
   const skillCategories = [
@@ -66,14 +69,24 @@ export default function PortfolioPage() {
       description: "App developed to search for coffee shops in Bangkok.",
       tags: ["React Native"],
       color: "bg-amber-100",
-      link: "https://github.com/Bannaruj/rn-bkk-coffee-app"
+      link: "https://github.com/Bannaruj/rn-bkk-coffee-app",
+      image: CoffeeAppImage
     },
     {
       title: "money_tracking_app",
       description: "Goal money management app for tracking incoming and outgoing money.",
       tags: ["Flutter"],
       color: "bg-emerald-100",
-      link: "https://github.com/Bannaruj/money_tracking_app"
+      link: "https://github.com/Bannaruj/money_tracking_app",
+      image: MoneyTrackingAppImage
+    },
+    {
+      title: "rn-bmr-calculator-app",
+      description: "Calculate the bmr by using weight height age and gender",
+      tags: ["React Native"],
+      color: "bg-sky-100",
+      link: "https://github.com/Bannaruj/rn-dti-bmr-calculator-app",
+      image: BMRAppImage
     }
   ];
 
@@ -129,9 +142,6 @@ export default function PortfolioPage() {
               <a href="https://github.com/Bannaruj" target="_blank" rel="noopener noreferrer" className="p-3.5 bg-white text-zinc-600 hover:text-indigo-600 border border-zinc-200 rounded-lg hover:border-indigo-200 transition-all shadow-sm">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="#" className="p-3.5 bg-white text-zinc-600 hover:text-indigo-600 border border-zinc-200 rounded-lg hover:border-indigo-200 transition-all shadow-sm">
-                <Linkedin className="w-5 h-5" />
-              </a>
             </div>
           </div>
         </div>
@@ -176,10 +186,16 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div key={index} className="group bg-white rounded-3xl overflow-hidden border border-zinc-200/60 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
-                <div className={`h-48 w-full ${project.color} relative overflow-hidden flex items-center justify-center`}>
-                   {/* Abstract representation of a project image placeholder */}
-                   <div className="w-32 h-32 bg-white/40 backdrop-blur-sm rounded-full mix-blend-overlay animate-pulse"></div>
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                <div className={`h-48 w-full ${project.color} relative overflow-hidden flex items-center justify-center p-6`}>
+                  {project.image ? (
+                    <Image src={project.image} alt={project.title} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-xl" />
+                  ) : (
+                    <>
+                      {/* Abstract representation of a project image placeholder */}
+                      <div className="w-32 h-32 bg-white/40 backdrop-blur-sm rounded-full mix-blend-overlay animate-pulse"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                    </>
+                  )}
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -240,7 +256,6 @@ export default function PortfolioPage() {
           </p>
           <div className="flex space-x-6 mb-8">
             <a href="https://github.com/Bannaruj" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-            <a href="#" className="hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
             <a href="#" className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
           </div>
           <p className="text-sm">
